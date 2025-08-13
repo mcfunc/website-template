@@ -1,0 +1,114 @@
+.conversion-funnel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.conversion-funnel.loading,
+.conversion-funnel.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.conversion-funnel.error p {
+  color: #dc3545;
+  margin-bottom: 15px;
+}
+
+.funnel-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.funnel-step {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 200px;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.funnel-step:hover {
+  transform: scale(1.02);
+}
+
+.funnel-step:nth-child(1) {
+  width: 90%;
+  background: linear-gradient(90deg, #28a745, #1e7e34);
+}
+
+.funnel-step:nth-child(2) {
+  width: 75%;
+  background: linear-gradient(90deg, #17a2b8, #138496);
+}
+
+.funnel-step:nth-child(3) {
+  width: 60%;
+  background: linear-gradient(90deg, #ffc107, #e0a800);
+}
+
+.funnel-step:nth-child(4) {
+  width: 45%;
+  background: linear-gradient(90deg, #fd7e14, #e8650e);
+}
+
+.funnel-step:nth-child(5) {
+  width: 30%;
+  background: linear-gradient(90deg, #dc3545, #c82333);
+}
+
+.step-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+}
+
+.step-metrics {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step-count {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.step-percentage {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.step-connector {
+  font-size: 24px;
+  color: #007bff;
+  margin: 5px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .funnel-step {
+    min-width: 150px;
+    padding: 15px;
+  }
+  
+  .step-label {
+    font-size: 12px;
+  }
+  
+  .step-count {
+    font-size: 16px;
+  }
+  
+  .step-percentage {
+    font-size: 12px;
+  }
+}

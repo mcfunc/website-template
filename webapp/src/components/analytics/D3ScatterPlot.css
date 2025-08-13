@@ -1,0 +1,323 @@
+.d3-scatter-plot {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.d3-scatter-plot.loading,
+.d3-scatter-plot.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.scatter-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.refresh-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.refresh-btn:hover {
+  background: #0056b3;
+}
+
+.error-notice {
+  color: #dc3545;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.scatter-container {
+  flex: 1;
+  position: relative;
+  min-height: 450px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.scatter-container svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Axis Styles */
+.x-axis, .y-axis {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+}
+
+.x-axis line, .y-axis line {
+  stroke: #666;
+  shape-rendering: crispEdges;
+}
+
+.x-axis path, .y-axis path {
+  stroke: #666;
+  shape-rendering: crispEdges;
+  fill: none;
+}
+
+.x-axis text, .y-axis text {
+  fill: #666;
+}
+
+.axis-label {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  fill: #333;
+}
+
+/* Scatter Plot Dots */
+.dot {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.dot:hover {
+  stroke-width: 3px !important;
+}
+
+/* Trend Line */
+.trend-line {
+  pointer-events: none;
+}
+
+.trend-equation {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+}
+
+.correlation-text {
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Legend Styles */
+.scatter-legend {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+  cursor: default;
+}
+
+.legend-item text {
+  font-family: Arial, sans-serif;
+  font-weight: 500;
+}
+
+.legend-item circle {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.scatter-info {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.scatter-info p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip styles for Scatter Plot */
+.scatter-tooltip {
+  position: absolute;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  max-width: 250px;
+}
+
+.scatter-tooltip strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Grid lines for better readability */
+.scatter-container svg .x-axis .tick line,
+.scatter-container svg .y-axis .tick line {
+  stroke: #e0e0e0;
+  stroke-width: 0.5px;
+}
+
+/* Add subtle grid */
+.scatter-container svg g.tick line {
+  stroke: rgba(0, 0, 0, 0.1);
+  stroke-width: 0.5px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .scatter-container {
+    min-height: 350px;
+  }
+  
+  .axis-label {
+    font-size: 11px;
+  }
+  
+  .x-axis, .y-axis {
+    font-size: 10px;
+  }
+  
+  .trend-equation,
+  .correlation-text {
+    font-size: 10px;
+  }
+  
+  .legend-item text {
+    font-size: 10px;
+  }
+  
+  .scatter-info p {
+    font-size: 11px;
+  }
+  
+  .scatter-tooltip {
+    font-size: 12px;
+    padding: 8px 12px;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .d3-scatter-plot {
+    padding: 12px;
+  }
+  
+  .scatter-container {
+    min-height: 280px;
+  }
+  
+  .scatter-legend {
+    padding: 6px 8px;
+    transform: translate(calc(100% - 90px), 20px) !important;
+  }
+  
+  .legend-item text {
+    font-size: 9px;
+  }
+  
+  .axis-label {
+    font-size: 10px;
+  }
+  
+  .x-axis, .y-axis {
+    font-size: 9px;
+  }
+  
+  .trend-equation,
+  .correlation-text {
+    font-size: 9px;
+  }
+  
+  .scatter-tooltip {
+    font-size: 11px;
+    padding: 6px 10px;
+    max-width: 180px;
+  }
+}
+
+/* Animation for dots appearing */
+.dot {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.dot.animate-in {
+  opacity: 0.8;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .dot {
+    stroke-width: 2px !important;
+  }
+  
+  .scatter-tooltip {
+    background: black;
+    border: 1px solid white;
+  }
+  
+  .x-axis line, .y-axis line,
+  .x-axis path, .y-axis path {
+    stroke: black;
+    stroke-width: 1.5px;
+  }
+}
+
+/* Focus styles for accessibility */
+.dot:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .scatter-controls {
+    display: none;
+  }
+  
+  .scatter-info {
+    page-break-inside: avoid;
+  }
+  
+  .d3-scatter-plot {
+    box-shadow: none;
+    border: 1px solid #333;
+  }
+}

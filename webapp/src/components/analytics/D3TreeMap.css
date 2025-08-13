@@ -1,0 +1,289 @@
+.d3-treemap {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.d3-treemap.loading,
+.d3-treemap.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.treemap-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.refresh-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.2s;
+}
+
+.refresh-btn:hover {
+  background: #0056b3;
+}
+
+.error-notice {
+  color: #dc3545;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.treemap-container {
+  flex: 1;
+  position: relative;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.treemap-container svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* TreeMap Cell Styles */
+.treemap-cell {
+  cursor: pointer;
+}
+
+.treemap-cell rect {
+  transition: all 0.2s ease;
+}
+
+.treemap-cell:hover rect {
+  stroke-width: 3px !important;
+  opacity: 1 !important;
+}
+
+.treemap-label {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  font-weight: 600;
+  fill: #333;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+  dominant-baseline: middle;
+}
+
+.treemap-value {
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  fill: #666;
+  text-anchor: middle;
+  pointer-events: none;
+  user-select: none;
+  dominant-baseline: middle;
+}
+
+/* Legend Styles */
+.treemap-legend {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-item {
+  cursor: default;
+}
+
+.legend-item text {
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+  fill: #333;
+  font-weight: 500;
+}
+
+.legend-item rect {
+  stroke: #fff;
+  stroke-width: 1px;
+}
+
+.treemap-info {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+}
+
+.treemap-info p {
+  margin: 5px 0;
+  font-size: 12px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tooltip styles for TreeMap */
+.treemap-tooltip {
+  position: absolute;
+  text-align: left;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-family: Arial, sans-serif;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  border-radius: 6px;
+  pointer-events: none;
+  z-index: 1000;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  line-height: 1.5;
+  max-width: 250px;
+}
+
+.treemap-tooltip strong {
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Color scheme variations */
+.treemap-cell.blues rect {
+  fill: var(--blue-scheme, #3182bd);
+}
+
+.treemap-cell.greens rect {
+  fill: var(--green-scheme, #31a354);
+}
+
+.treemap-cell.oranges rect {
+  fill: var(--orange-scheme, #fd8d3c);
+}
+
+.treemap-cell.purples rect {
+  fill: var(--purple-scheme, #756bb1);
+}
+
+.treemap-cell.reds rect {
+  fill: var(--red-scheme, #de2d26);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .treemap-container {
+    min-height: 300px;
+  }
+  
+  .treemap-label {
+    font-size: 12px;
+  }
+  
+  .treemap-value {
+    font-size: 10px;
+  }
+  
+  .legend-item text {
+    font-size: 10px;
+  }
+  
+  .treemap-info p {
+    font-size: 11px;
+  }
+  
+  .treemap-tooltip {
+    font-size: 12px;
+    padding: 8px 12px;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .d3-treemap {
+    padding: 12px;
+  }
+  
+  .treemap-container {
+    min-height: 250px;
+  }
+  
+  .treemap-legend {
+    padding: 6px 8px;
+  }
+  
+  .legend-item text {
+    font-size: 9px;
+  }
+  
+  .treemap-label {
+    font-size: 10px;
+  }
+  
+  .treemap-value {
+    font-size: 9px;
+  }
+  
+  .treemap-tooltip {
+    font-size: 11px;
+    padding: 6px 10px;
+    max-width: 180px;
+  }
+}
+
+/* Animation for loading state */
+.treemap-container.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+/* Accessibility improvements */
+.treemap-cell {
+  outline: none;
+}
+
+.treemap-cell:focus rect {
+  stroke: #007bff;
+  stroke-width: 3px;
+  stroke-dasharray: 2,2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .treemap-cell rect {
+    stroke-width: 2px !important;
+  }
+  
+  .treemap-tooltip {
+    background: black;
+    border: 1px solid white;
+  }
+  
+  .legend-item rect {
+    stroke-width: 2px;
+  }
+}

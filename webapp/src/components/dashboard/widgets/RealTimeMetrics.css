@@ -1,0 +1,186 @@
+.realtime-metrics {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.realtime-metrics.loading,
+.realtime-metrics.error {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.realtime-metrics.error p {
+  color: #dc3545;
+  margin-bottom: 15px;
+}
+
+/* Cards Layout */
+.realtime-metrics.cards .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  flex: 1;
+}
+
+.metric-card {
+  background: #f8f9fa;
+  border-radius: 6px;
+  padding: 15px;
+  text-align: center;
+  border-left: 4px solid #007bff;
+  transition: transform 0.2s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+}
+
+.metric-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.metric-label {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+}
+
+.metric-change {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 12px;
+}
+
+.metric-change.positive {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+}
+
+.metric-change.negative {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+}
+
+/* List Layout */
+.realtime-metrics.list .metrics-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.metric-item:last-child {
+  border-bottom: none;
+}
+
+.metric-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.metric-name {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.metric-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Compact Layout */
+.realtime-metrics.compact .metrics-compact {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.compact-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 60px;
+}
+
+.compact-metric strong {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 2px;
+}
+
+.compact-metric small {
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.separator {
+  color: #ddd;
+  font-weight: bold;
+}
+
+/* Footer */
+.metrics-timestamp {
+  margin-top: auto;
+  padding-top: 10px;
+  text-align: center;
+  font-size: 10px;
+  color: #6c757d;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Loading state */
+.realtime-metrics.loading .loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .realtime-metrics.cards .metrics-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+  
+  .metric-card {
+    padding: 10px;
+  }
+  
+  .metric-value {
+    font-size: 20px;
+  }
+  
+  .metric-label {
+    font-size: 10px;
+  }
+}

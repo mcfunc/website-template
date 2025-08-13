@@ -1,0 +1,313 @@
+/* Profile Page Styles */
+.profile-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
+               'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-header h1 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.profile-header p {
+  color: #666;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Tabs */
+.profile-tabs {
+  display: flex;
+  border-bottom: 1px solid #e1e5e9;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+  color: #0066cc;
+  background-color: #f8f9fa;
+}
+
+.tab-button.active {
+  color: #0066cc;
+  border-bottom-color: #0066cc;
+  font-weight: 600;
+}
+
+/* Message styling */
+.message {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Profile Section */
+.profile-section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e1e5e9;
+}
+
+.profile-section h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+/* Forms */
+.profile-form,
+.notifications-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #374151;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.75rem;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #0066cc;
+  box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Form rows */
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  color: #374151;
+  margin: 0;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 0.75rem;
+  width: 18px;
+  height: 18px;
+  accent-color: #0066cc;
+}
+
+/* Notification sections */
+.notification-section {
+  border: 1px solid #e1e5e9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background-color: #f8f9fa;
+}
+
+.notification-section h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.notification-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+  color: white;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+  align-self: flex-start;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #0052a3 0%, #004182 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+
+  .profile-header h1 {
+    font-size: 2rem;
+  }
+
+  .profile-section {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .tab-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-tabs {
+    flex-direction: column;
+    border-bottom: none;
+  }
+
+  .tab-button {
+    border-bottom: 1px solid #e1e5e9;
+    border-radius: 0;
+    text-align: left;
+  }
+
+  .tab-button.active {
+    border-left: 3px solid #0066cc;
+    border-bottom: 1px solid #e1e5e9;
+    background-color: #f8f9fa;
+  }
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .profile-section {
+    background: #1a1a1a;
+    border-color: #333;
+    color: #fff;
+  }
+
+  .profile-header h1,
+  .profile-section h2,
+  .notification-section h3 {
+    color: #fff;
+  }
+
+  .profile-header p {
+    color: #ccc;
+  }
+
+  .form-group label,
+  .checkbox-label {
+    color: #e1e5e9;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #fff;
+  }
+
+  .notification-section {
+    background-color: #2a2a2a;
+    border-color: #444;
+  }
+
+  .tab-button {
+    color: #ccc;
+  }
+
+  .tab-button:hover {
+    color: #0088ff;
+    background-color: #2a2a2a;
+  }
+
+  .tab-button.active {
+    color: #0088ff;
+    border-bottom-color: #0088ff;
+  }
+}

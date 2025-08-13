@@ -1,0 +1,332 @@
+.module-loader {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.module-loader.loading,
+.module-loader.error,
+.module-loader.empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  background: #f8f9fa;
+  border: 1px dashed #dee2e6;
+  border-radius: 6px;
+}
+
+.module-loader.loaded {
+  height: 100%;
+}
+
+/* Loading State */
+.loading-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  margin: 0 0 10px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.loading-container small {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Error State */
+.error-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 400px;
+}
+
+.error-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.error-content h4 {
+  margin: 0 0 15px;
+  color: #dc3545;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.error-content p {
+  margin: 8px 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.error-content code {
+  background: #f8f9fa;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #e83e8c;
+}
+
+.error-message {
+  background: #f8d7da;
+  color: #721c24;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #f5c6cb;
+  font-family: monospace;
+  font-size: 12px !important;
+  text-align: left;
+  margin: 15px 0 !important;
+}
+
+.error-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.retry-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.retry-btn:hover {
+  background: #0056b3;
+}
+
+.fallback-btn {
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.fallback-btn:hover {
+  background: #545b62;
+}
+
+.retry-info {
+  color: #ffc107 !important;
+  font-style: italic;
+  margin-top: 10px !important;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #999;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* Loaded State */
+.module-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Module Warning */
+.module-warning {
+  background: #fff3cd;
+  color: #856404;
+  padding: 15px;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+  margin: 10px;
+}
+
+/* Fallback State */
+.module-loader.fallback {
+  opacity: 0.8;
+  border: 1px dashed #ffc107;
+}
+
+.module-loader.fallback::before {
+  content: "Fallback Content";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: #ffc107;
+  color: #212529;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+/* Debug Info (Development Only) */
+.module-debug-info {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 6px 0 0 0;
+  font-size: 11px;
+  z-index: 1000;
+}
+
+.module-debug-info details {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.module-debug-info summary {
+  font-weight: 600;
+  user-select: none;
+  outline: none;
+  padding: 2px 0;
+}
+
+.module-debug-info summary:hover {
+  color: #007bff;
+}
+
+.debug-content {
+  padding: 10px 0 5px;
+  border-top: 1px solid #555;
+  margin-top: 5px;
+}
+
+.debug-content p {
+  margin: 3px 0;
+  line-height: 1.3;
+}
+
+.debug-content strong {
+  color: #ffc107;
+}
+
+.debug-unload-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 10px;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+}
+
+.debug-unload-btn:hover {
+  background: #c82333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .module-loader.loading,
+  .module-loader.error,
+  .module-loader.empty {
+    min-height: 150px;
+  }
+  
+  .error-container {
+    padding: 15px;
+  }
+  
+  .error-content h4 {
+    font-size: 16px;
+  }
+  
+  .error-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .error-actions button {
+    width: 120px;
+  }
+  
+  .module-debug-info {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 6px;
+  }
+}
+
+/* Animation for content loading */
+.module-content {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .module-loader.loading,
+  .module-loader.error,
+  .module-loader.empty {
+    border: 2px solid #000;
+  }
+  
+  .loading-spinner {
+    border-top-color: #000;
+  }
+  
+  .error-container {
+    border: 2px solid #dc3545;
+    background: white;
+  }
+}
+
+/* Print styles */
+@media print {
+  .module-debug-info {
+    display: none;
+  }
+  
+  .error-actions {
+    display: none;
+  }
+  
+  .loading-spinner {
+    display: none;
+  }
+}
